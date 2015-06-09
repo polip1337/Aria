@@ -41,7 +41,7 @@ var accessLogStream = fs.createWriteStream('./logs/mainlogs.log', {flags: 'a'})
 
 //=============== DATABASE ===============
 var mongoose = require('mongoose');
-var uriUtil = require('mongodb-uri');
+
 
 /*
  * Mongoose by default sets the auto_reconnect option to true.
@@ -58,9 +58,9 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
  * Mongoose's format.
  */
 var mongodbUri = 'mongodb://heroku_app37690449:is1s2vl84k9qiq0kfu428p9j1@ds053320.mongolab.com:53320/heroku_app37690449';
-var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
-mongoose.connect(mongooseUri, options);
+
+mongoose.connect(mongodbUri, options);
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 
 //=============== PASSPORT ===============
