@@ -26,8 +26,5 @@
     "passport-local": "~0.1.6",
     "passport-twitter": "~1.0.2",
     "serve-favicon": "*"
-  },
-  "engines": {
-    "node": "0.10.x"
-  },
+  }
 }
