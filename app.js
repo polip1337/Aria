@@ -61,11 +61,8 @@ var mongodbUri = 'mongodb://heroku_app37690449:is1s2vl84k9qiq0kfu428p9j1@ds05332
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 mongoose.connect(mongooseUri, options);
-
-
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.on('error', console.log);
-mongoose.connection.on('disconnected', connect);
+
 //=============== PASSPORT ===============
 
 // Configuring Passport
