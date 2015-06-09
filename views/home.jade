@@ -1,0 +1,38 @@
+extends layout
+block content
+    h1= title
+    p Welcome to ambulance map app
+    // Wrapper
+    #wrapper
+        // USER INFO
+        #userInfo
+            link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+            h2 Map
+            #mapa.map
+        // /USER INFO
+        // USER LIST
+        h2 Location List
+        #userList
+            table
+                thead
+                    th(style='padding: 3px ') Cause
+                    th(style='padding: 3px ') Latitude
+                    th(style='padding: 3px ') Longitude
+                    th(style='padding: 3px ') Ambulance
+                    th(style='padding: 3px ') delete
+                tbody
+        // /USER LIST
+        // ADD USER
+        h2 Add Location
+        #addUser
+            fieldset
+                input#inputCause(type='text', placeholder='Cause')
+                input#inputAmbulanceId(type='text', placeholder='ambulance')
+                br
+                input#inputLatitude(type='text', placeholder='Latitude')
+                input#inputLongitude(type='text', placeholder='Longitude')
+                br
+                button#btnAddUser Add User
+        // /ADD USER
+    // /WRAPPER
+                                                              
