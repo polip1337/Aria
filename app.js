@@ -40,6 +40,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 var accessLogStream = fs.createWriteStream('./logs/mainlogs.log', {flags: 'a'})
 
 //=============== DATABASE ===============
+
+
+
+
+
 var mongoose = require('mongoose');
 
 
