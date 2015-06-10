@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -40,35 +40,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 var accessLogStream = fs.createWriteStream('./logs/mainlogs.log', {flags: 'a'})
 
 //=============== DATABASE ===============
+var mongoose = require('mongoose')
+var connect = function () {
+    var options = {server: {socketOptions: {keepAlive: 1}}};
+    mongoose.connect("mongodb://heroku_app37690449:is1s2vl84k9qiq0kfu428p9j1@ds053320.mongolab.com:53320/heroku_app37690449", options);
+};
+connect();
+mongoose.connection.on('error', console.log);
+mongoose.connection.on('disconnected', connect);
 
 
 
-
-
+/*
 var mongoose = require('mongoose');
 
 
-/*
- * Mongoose by default sets the auto_reconnect option to true.
- * We recommend setting socket options at both the server and replica set level.
- * We recommend a 30 second connection timeout because it allows for
- * plenty of time in most operating environments.
- */
+
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
     replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-/*
- * Mongoose uses a different connection string format than MongoDB's standard.
- * Use the mongodb-uri library to help you convert from the standard format to
- * Mongoose's format.
- */
 var mongodbUri = 'mongodb://heroku_app37690449:is1s2vl84k9qiq0kfu428p9j1@ds053320.mongolab.com:53320/heroku_app37690449';
 
 
 mongoose.connect(mongodbUri, options);
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-
+*/
 //=============== PASSPORT ===============
 
 // Configuring Passport
