@@ -121,7 +121,7 @@ var options = {
 
 //=============== Create an HTTPS service identical to the HTTP service. ===============
 
-https.createServer(options, app).listen(1337, "0.0.0.0");
+https.createServer(options, app).listen(process.env.PORT || 1337, "0.0.0.0");
 
 //=============== ERROR HANDLERS ===============
 
